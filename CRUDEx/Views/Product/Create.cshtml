@@ -1,0 +1,28 @@
+﻿@model CRUDEx.Models.Product
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+@using (Html.BeginForm())
+{
+
+
+    <tr>
+        <th>@Html.DisplayNameFor(p => p.ProductName)</th>
+        <td>@Html.EditorFor(p => p.ProductName)</td>
+    </tr>
+
+    
+    <tr>
+        <th>@Html.DisplayNameFor(p => p.Category.CategoryName)</th>
+        <td> @Html.DropDownList("CategoryId")</td>
+    </tr>
+           
+          
+  
+
+    <tr>
+        <input type="submit" value="Save" />
+    </tr>
+}

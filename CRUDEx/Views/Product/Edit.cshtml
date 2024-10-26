@@ -1,0 +1,29 @@
+﻿@model CRUDEx.Models.Product
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+@using (Html.BeginForm())
+{
+    <tr>
+        <th>@Html.DisplayNameFor(p => p.ProductId)</th>
+        <td>@Html.EditorFor(p => p.ProductId)</td>
+    </tr>
+    <br />
+
+    <tr>
+        <th>@Html.DisplayNameFor(p => p.ProductName)</th>
+        <td>@Html.EditorFor(p => p.ProductName)</td>
+    </tr>
+
+    <tr>
+        <th>@Html.DisplayNameFor(p => p.Category.CategoryName)</th>
+        <td> @Html.DropDownList("CategoryId")</td>
+    </tr>
+
+    <tr>
+        <input type="submit" value="Edit" />
+    </tr>
+}
+

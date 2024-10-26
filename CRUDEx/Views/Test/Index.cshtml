@@ -1,0 +1,24 @@
+﻿@model IEnumerable<CRUDEx.Models.Category>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@Html.ActionLink("Create New", "Create")
+<table>
+    <tr>
+        <th>@Html.DisplayNameFor(p => p.CategoryId)</th>
+        <th>@Html.DisplayNameFor(p => p.CategoryName)</th>
+    </tr>
+
+    @foreach (var temp in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(p => temp.CategoryId)</td>
+            <td>@Html.DisplayFor(p => temp.CategoryName)</td>
+            <td>@Html.ActionLink("Edit", "Edit", new { id = temp.CategoryId })</td>
+            <td>@Html.ActionLink("Delete", "Delete", new { id = temp.CategoryId })</td>
+        </tr>
+    }
+</table>

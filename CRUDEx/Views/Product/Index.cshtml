@@ -1,0 +1,45 @@
+﻿@model IEnumerable<CRUDEx.Models.ProductVM>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@Html.ActionLink("Create New", "Create")
+<table>
+    <tr>
+        <th>@Html.DisplayNameFor(p => p.ProductId)</th>
+        <th>@Html.DisplayNameFor(p => p.ProductName)</th>
+        <th>@Html.DisplayNameFor(p =>p.CategoryId)</th>
+        <th>@Html.DisplayNameFor(p=>p.CategoryName)</th>
+
+
+    </tr>
+
+    @foreach (var temp in Model)
+    {
+<tr>
+    <td>@Html.DisplayFor(p => temp.ProductId)</td>
+    <td>@Html.DisplayFor(p => temp.ProductName)</td>
+    <td>@Html.DisplayFor(p => temp.CategoryId)</td>
+    <td>@Html.DisplayFor(p => temp.CategoryName)</td>
+    <td>@Html.ActionLink("Edit", "Edit", new { id = temp.CategoryId })</td>
+    <td>@Html.ActionLink("Delete", "Delete", new { id = temp.CategoryId })</td>
+</tr>
+    }
+</table>
+
+<div>
+    @* Pagination links *@
+    @{ int currentPage = ViewBag.CurrentPage ?? 1;
+                    int totalPages = ViewBag.TotalPages ?? 1; }
+    <nav aria-label="Page navigation">
+        <ul>
+            @for (int i = 1; i <= totalPages; i++)
+            {
+<li  @(i == currentPage ? "active" : "")>
+    <a href="@Url.Action("Index", new { page = i })">@i</a>
+</li>            }
+        </ul>
+    </nav>
+</div>
+

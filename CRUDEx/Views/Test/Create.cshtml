@@ -1,0 +1,19 @@
+﻿@model CRUDEx.Models.Category
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+@using (Html.BeginForm())
+{
+
+
+<tr>
+    <th>@Html.DisplayNameFor(p => p.CategoryName)</th>
+    <td>@Html.EditorFor(p => p.CategoryName)</td>
+</tr>
+
+<tr>
+    <input type="submit" value="Save"/>
+</tr>
+}
